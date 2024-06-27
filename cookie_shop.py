@@ -33,7 +33,7 @@ def bake_cookies(filepath):
             if first_line[i] == "id" or first_line[i] == "quantity":
                 cookie[first_line[i]] = int(cookies_info[i])
             elif first_line[i] == "price":
-                cookie[first_line[i]] = float(cookies_info[i][1:])
+                cookie['price'] = float(cookies_info[i][1:])
             else:
                 cookie[first_line[i]] = cookies_info[i]
         cookies_list.append(cookie)
@@ -153,7 +153,7 @@ def solicit_order(cookies):
         customer_id = input("What cookie id do you want to order? ")
         if customer_id in ['finished', 'done', 'quit', 'exit']:
             break
-        if customer_id.isnumeric():
+        elif customer_id.isnumeric():
             customer_id = int(customer_id)
             if customer_id > 0:
                 customer_dict = {'id': customer_id}
