@@ -164,7 +164,7 @@ def solicit_order(cookies):
 
     return customer_orders
 
-        
+solicit_order(bake_cookies('data/cookies.csv'))       
 
 
 def display_order_total(order, cookies):
@@ -187,19 +187,8 @@ def display_order_total(order, cookies):
 
     """
     # write your code for this function below this line
-    total_cost =0
-    for i in order:
-        cookie_price = format(get_cookie_from_dict(i['id'],cookies)['price'],'.2f')
-        total_cost += int(i['quantity']) * float(cookie_price)
-    
-    print(f"\nThank you for your order. You have ordered:\n")
 
-    for i in order:
-        print(f"-{i['quantity']} {get_cookie_from_dict(i['id'],cookies)['title']}\n")
-    print(f"Your total is ${format(total_cost,'.2f')}.\nPlease pay with Bitcoin before picking-up.\n")
-    print("Thank you!\n-The Python Cookie Shop Robot.\n")
 
-        
 def run_shop(cookies):
     """
     Executes the cookie shop program, following requirements in the README.md file.
@@ -213,4 +202,3 @@ def run_shop(cookies):
     display_cookies(cookies)
     order = solicit_order(cookies)
     display_order_total(order, cookies)
-
